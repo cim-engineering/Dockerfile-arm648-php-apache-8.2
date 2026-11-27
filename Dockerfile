@@ -31,7 +31,8 @@ RUN sed -i 's!/var/www/!/app!g' /etc/apache2/apache2.conf /etc/apache2/conf-avai
 WORKDIR /app
 
 # Update the Apache environment to point to the new document root
-ENV APACHE_DOCUMENT_ROOT /app
+#ENV APACHE_DOCUMENT_ROOT /app
+ENV APACHE_DOCUMENT_ROOT=/app
 
 # .htaccess configs
 RUN sed -i '/<Directory \/app>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
